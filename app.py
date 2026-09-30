@@ -6,7 +6,8 @@ from flask import (
     session,
     redirect
 )
-
+import base64
+import json
 import firebase_admin
 from firebase_admin import credentials, firestore
 import os
@@ -58,11 +59,29 @@ def sitemap():
 db = None
 
 try:
+
+    firebase_data = os.environ.get(
+        "FIREBASE_SERVICE_ACCOUNT_B64"
+    )
+
+    if not firebase_data:
+        raise Exception(
+            "FIREBASE_SERVICE_ACCOUNT_B64 is missing"
+        )
+
+    decoded_data = base64.b64decode(
+        firebase_data
+    ).decode("utf-8")
+
+    service_account_info = json.loads(
+        decoded_data
+    )
+
     if not firebase_admin._apps:
 
         cred = credentials.Certificate(
-    "/etc/secrets/serviceAccountKey.json"
-    )
+            service_account_info
+        )
 
         firebase_admin.initialize_app(
             cred
