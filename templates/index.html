@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Alankara Jewels | Elegant Jewellery, Rings, Necklaces & Earrings
+    </title>
+
+    <meta
+        name="description"
+        content="Discover elegant jewellery at Alankara Jewels. Explore rings, necklaces, earrings and bracelets designed for timeless beauty and special moments."
+    >
+
+    <meta
+        name="keywords"
+        content="Alankara Jewels, jewellery, jewelry, rings, necklaces, earrings, bracelets, jewellery shop, jewellery India"
+    >
+
+    <meta
+        name="author"
+        content="Alankara Jewels"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow, max-image-preview:large"
+    >
+
+    <meta
+        name="theme-color"
+        content="#1c1714"
+    >
+
+    <!-- Canonical -->
+    <link
+        rel="canonical"
+        href="https://YOUR-DOMAIN.com/"
+    >
+
+    <!-- Open Graph -->
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Alankara Jewels | Timeless Elegance"
+    >
+
+    <meta
+        property="og:description"
+        content="Discover elegant jewellery at Alankara Jewels. Explore rings, necklaces, earrings and bracelets."
+    >
+
+    <meta
+        property="og:url"
+        content="https://YOUR-DOMAIN.com/"
+    >
+
+    <meta
+        property="og:site_name"
+        content="Alankara Jewels"
+    >
+
+    <meta
+        property="og:locale"
+        content="en_IN"
+    >
+
+    <!-- Twitter / X -->
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Alankara Jewels | Timeless Elegance"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Discover elegant jewellery at Alankara Jewels."
+    >
+
+    <!-- Fonts -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+    <!-- Organization structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Alankara Jewels",
+        "url": "https://YOUR-DOMAIN.com/",
+        "description": "Alankara Jewels offers elegant jewellery including rings, necklaces, earrings and bracelets."
+    }
+    </script>
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>ALANKARA</span>
+        <small>JEWELS</small>
+    </div>
+
+    <nav id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+
+        
+    </nav>
+
+    <div class="nav-actions">
+
+        <button id="searchBtn" class="icon-btn">
+            🔍
+        </button>
+
+        <button id="cartBtn" class="icon-btn cart-button">
+            🛒
+            <span id="cartCount">0</span>
+        </button>
+
+        <button id="menuBtn" class="menu-btn">
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= SEARCH ================= -->
+
+<div class="search-box" id="searchBox">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search jewellery..."
+    >
+
+</div>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">CRAFTED WITH LOVE</p>
+
+        <h1>
+            Jewellery That
+            <span>Defines You</span>
+        </h1>
+
+        <p>
+            Discover timeless jewellery designed to celebrate
+            your most beautiful moments.
+        </p>
+
+        <a href="#shop" class="primary-btn">
+            Explore Collection
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+    <div class="feature">
+        <span>✦</span>
+        <div>
+            <h3>Premium Quality</h3>
+            <p>Carefully selected jewellery</p>
+        </div>
+    </div>
+
+    <div class="feature">
+        <span>♢</span>
+        <div>
+            <h3>Elegant Designs</h3>
+            <p>Made for every occasion</p>
+        </div>
+    </div>
+
+    <div class="feature">
+        <span>✓</span>
+        <div>
+            <h3>Secure Shopping</h3>
+            <p>Safe and reliable orders</p>
+        </div>
+    </div>
+
+    <div class="feature">
+        <span>♡</span>
+        <div>
+            <h3>Customer Support</h3>
+            <p>We're here to help</p>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ================= SHOP ================= -->
+
+<section class="shop-section" id="shop">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">OUR COLLECTION</p>
+
+        <h2>Discover Your <span>Perfect Piece</span></h2>
+
+        <p>
+            Explore our carefully selected jewellery collection.
+        </p>
+
+    </div>
+
+
+    <!-- Categories -->
+
+    <div class="categories">
+
+        <button class="category active" data-category="all">
+            All
+        </button>
+
+        <button class="category" data-category="rings">
+            Rings
+        </button>
+
+        <button class="category" data-category="necklaces">
+            Necklaces
+        </button>
+
+        <button class="category" data-category="earrings">
+            Earrings
+        </button>
+
+        <button class="category" data-category="bracelets">
+            Bracelets
+        </button>
+
+    </div>
+
+
+    <!-- Products -->
+
+    <div class="products" id="products"></div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <div class="about-image"></div>
+
+    <div class="about-content">
+
+        <p class="eyebrow">OUR STORY</p>
+
+        <h2>
+            Jewellery With
+            <span>Meaning</span>
+        </h2>
+
+        <p>
+            At Alankara Jewels, we believe jewellery is more than
+            an accessory. It represents memories, relationships,
+            celebrations and the moments that stay with us forever.
+        </p>
+
+        <p>
+            Every piece is selected with attention to elegance,
+            quality and timeless beauty.
+        </p>
+
+        <a href="#shop" class="secondary-btn">
+            Discover More
+        </a>
+
+    </div>
+
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="contact">
+
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+
+            <div class="logo">
+                <span>ALANKARA</span>
+                <small>JEWELS</small>
+            </div>
+
+            <p>
+                Timeless jewellery for timeless moments.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Contact</h3>
+
+            <p>📞 +91 93326 36800</p>
+
+            <p>✉️ soham01mahapatra@gmail.com</p>
+
+            <p>📍 Puratan Bazar(Kosai Goli), Kharagpur, Paschim Medinipur,West Bengal, India</p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Follow Us</h3>
+
+            <div class="socials">
+
+
+                <a href="https://www.instagram.com/_.alankara_jewls._?stkn=MXV6Mml1Z3dzYm5reA==" target="_blank">Instagram</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="footer-admin">
+    <a href="/admin/login" aria-label="Alankara Jewels admin login">
+        Admin Login
+    </a>
+</div>
+    <div class="copyright">
+
+        © 2026 Alankara Jewels. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- ================= WHATSAPP ================= -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/919332636800"
+    target="_blank"
+    aria-label="Customer Support"
+>
+    💬
+</a>
+
+
+<!-- ================= CART ================= -->
+
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart">
+
+    <div class="cart-header">
+
+        <h2>Your Cart</h2>
+
+        <button id="closeCart">
+            ×
+        </button>
+
+    </div>
+
+
+    <div id="cartItems" class="cart-items">
+
+        <p class="empty-cart">
+            Your cart is empty.
+        </p>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+
+            <span>Total</span>
+
+            <strong id="cartTotal">
+                ₹0
+            </strong>
+
+        </div>
+
+        <button id="checkoutBtn" class="primary-btn">
+            Checkout
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= PRODUCT MODAL ================= -->
+
+<div class="modal" id="productModal">
+
+    <div class="modal-content">
+
+        <button class="modal-close" id="closeModal">
+            ×
+        </button>
+
+        <img id="modalImage" src="" alt="Product">
+
+        <div class="modal-details">
+
+            <p class="eyebrow" id="modalCategory">
+                JEWELLERY
+            </p>
+
+            <h2 id="modalName">
+                Product
+            </h2>
+
+            <p id="modalDescription">
+                Beautiful jewellery piece.
+            </p>
+
+            <strong id="modalPrice">
+                ₹0
+            </strong>
+
+            <button id="modalAddCart" class="primary-btn">
+                Add To Cart
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast">
+    Added to cart
+</div>
+
+<!-- ================= CHECKOUT MODAL ================= -->
+
+<div id="checkoutModal" class="checkout-modal">
+
+    <div class="checkout-box">
+
+        <div class="checkout-header">
+
+            <div>
+                <h2>Checkout</h2>
+                <p>Enter your delivery details to place your order.</p>
+            </div>
+
+            <button
+                type="button"
+                class="checkout-close"
+                id="checkoutClose"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="checkoutForm">
+
+            <!-- CUSTOMER DETAILS -->
+
+            <h3 class="checkout-section-title">
+                Customer Details
+            </h3>
+
+            <div class="checkout-form-grid">
+
+                <div class="checkout-field">
+
+                    <label for="checkoutName">
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="checkoutName"
+                        placeholder="Your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="checkoutPhone">
+                        Mobile Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="checkoutPhone"
+                        placeholder="10-digit mobile number"
+                        maxlength="10"
+                        inputmode="numeric"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="checkoutEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="checkoutEmail"
+                        placeholder="you@example.com"
+                    >
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="checkoutCity">
+                        City *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="checkoutCity"
+                        placeholder="Your city"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="checkout-field checkout-full">
+
+                    <label for="checkoutAddress">
+                        Delivery Address *
+                    </label>
+
+                    <textarea
+                        id="checkoutAddress"
+                        rows="3"
+                        placeholder="House/Flat, Street, Area"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="checkoutPin">
+                        PIN Code *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="checkoutPin"
+                        placeholder="6-digit PIN"
+                        maxlength="6"
+                        inputmode="numeric"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="checkoutNote">
+                        Order Note
+                    </label>
+
+                    <input
+                        type="text"
+                        id="checkoutNote"
+                        placeholder="Optional"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- ORDER SUMMARY -->
+
+            <h3 class="checkout-section-title">
+                Order Summary
+            </h3>
+
+            <div
+                id="checkoutSummary"
+                class="checkout-summary"
+            ></div>
+
+            <!-- ================= UPI PAYMENT ================= -->
+<h3 class="checkout-section-title">
+    Payment
+</h3>
+
+<div class="upi-payment-box">
+
+    <div class="upi-payment-info">
+        <h4>Pay using UPI</h4>
+
+        <p>
+            Scan the QR code using Google Pay, PhonePe, Paytm,
+            BHIM or any UPI app.
+        </p>
+
+        <div class="upi-id-box">
+            <span>UPI ID</span>
+            <strong>soham01mahapatra@okicici</strong>
+        </div>
+
+        <p class="upi-amount">
+            Amount to Pay:
+            <strong id="upiAmount">₹0</strong>
+        </p>
+    </div>
+
+    <div class="upi-qr-wrapper">
+        <div id="upiQrCode"></div>
+    </div>
+
+    <div class="checkout-field checkout-full">
+        <label for="checkoutUtr">
+            UTR / Transaction ID *
+        </label>
+
+        <input
+            type="text"
+            id="checkoutUtr"
+            placeholder="Enter the UTR / Transaction ID after payment"
+            required
+        >
+
+        <small>
+            Complete the UPI payment first, then enter the UTR shown
+            in your UPI app.
+        </small>
+    </div>
+
+</div>
+
+
+            <!-- MESSAGE -->
+
+            <div
+                id="checkoutMessage"
+                class="checkout-message"
+            ></div>
+
+
+            <div class="order-tracking-alert">
+    <strong>📦 Keep your Order ID safe</strong>
+    <p>
+        After placing your order, please save your Order ID.
+        You will need your <strong>Order ID</strong> and
+        <strong>registered phone number</strong> to track your order later.
+    </p>
+</div>
+
+
+
+
+
+            <!-- PLACE ORDER -->
+
+            <button
+                type="submit"
+                class="checkout-submit"
+                id="placeOrderBtn"
+            >
+                Place Order
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

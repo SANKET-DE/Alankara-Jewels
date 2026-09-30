@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alankara Jewels - Admin</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='admin.css') }}">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="brand">
+            <h2>Alankara</h2>
+            <span>JEWELS ADMIN</span>
+        </div>
+
+        <nav>
+            <button class="nav-btn active" data-section="productsSection">
+                📦 Products
+            </button>
+
+            <button class="nav-btn" data-section="ordersSection">
+                🛍️ Orders
+            </button>
+        </nav>
+
+       <div class="sidebar-bottom">
+    <a href="/" class="view-store">← View Store</a>
+    <a href="/admin/logout" class="logout-btn">↪ Logout</a>
+</div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p>Manage your Alankara Jewels store</p>
+            </div>
+
+            <button class="add-product-btn" onclick="openProductModal()">
+                + Add Product
+            </button>
+        </header>
+
+
+        <!-- PRODUCTS SECTION -->
+        <section id="productsSection" class="admin-section">
+
+            <div class="section-header">
+                <div>
+                    <h2>Products</h2>
+                    <p>Add, edit or remove products from your store.</p>
+                </div>
+
+                <div class="product-count">
+                    <span id="productCount">0</span> Products
+                </div>
+            </div>
+
+            <div id="productMessage" class="message"></div>
+
+            <div id="productsContainer" class="products-grid">
+                <!-- Products loaded by JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- ORDERS SECTION -->
+        <section id="ordersSection" class="admin-section hidden">
+
+            <div class="section-header">
+                <div>
+                    <h2>Orders</h2>
+                    <p>View and update customer orders.</p>
+                </div>
+
+                <button class="refresh-btn" onclick="loadOrders()">
+                    ↻ Refresh
+                </button>
+            </div>
+
+            <div id="orderMessage" class="message"></div>
+
+            <div class="orders-wrapper">
+
+                <table class="orders-table">
+
+                    <thead>
+    <tr>
+        <th>Customer ID</th>
+        <th>Customer Name</th>
+        <th>Status</th>
+    </tr>
+</thead>
+
+                    <tbody id="ordersTableBody">
+                        <!-- Orders loaded by JavaScript -->
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- PRODUCT MODAL -->
+<div id="productModal" class="modal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <div>
+                <h2 id="modalTitle">Add Product</h2>
+                <p>Add a product to your jewellery store.</p>
+            </div>
+
+            <button class="close-btn" onclick="closeProductModal()">
+                ×
+            </button>
+        </div>
+
+
+        <form id="productForm">
+
+            <input type="hidden" id="productId">
+
+
+            <div class="form-group">
+                <label>Product Name *</label>
+
+                <input
+                    type="text"
+                    id="productName"
+                    placeholder="e.g. Golden Elegance Ring"
+                    required
+                >
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>Category *</label>
+
+                    <select id="productCategory" required>
+                        <option value="">Select category</option>
+                        <option value="rings">Rings</option>
+                        <option value="necklaces">Necklaces</option>
+                        <option value="earrings">Earrings</option>
+                        <option value="bracelets">Bracelets</option>
+                        <option value="chains">Chains</option>
+                        <option value="bangles">Bangles</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Price (₹) *</label>
+
+                    <input
+                        type="number"
+                        id="productPrice"
+                        placeholder="4999"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>Stock *</label>
+
+                    <input
+                        type="number"
+                        id="productStock"
+                        placeholder="10"
+                        min="0"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label>Product Status</label>
+
+                    <select id="productActive">
+                        <option value="true">Active</option>
+                        <option value="false">Inactive</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <label>Image URL</label>
+
+                <input
+                    type="url"
+                    id="productImage"
+                    placeholder="https://example.com/product.jpg"
+                >
+
+                <small>
+                    For now, paste the image URL. We'll add direct image
+                    uploading later.
+                </small>
+            </div>
+
+
+            <div class="image-preview-wrapper">
+                <img id="imagePreview"
+                     src=""
+                     alt="Image Preview"
+                     style="display:none;">
+            </div>
+
+
+            <div class="form-group">
+                <label>Description</label>
+
+                <textarea
+                    id="productDescription"
+                    rows="4"
+                    placeholder="Describe the jewellery product..."
+                ></textarea>
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    onclick="closeProductModal()">
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                    id="saveProductBtn">
+                    Add Product
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- CUSTOMER / ORDER DETAILS MODAL -->
+<div id="orderDetailsModal" class="modal">
+
+    <div class="modal-box order-details-box">
+
+        <div class="modal-header">
+            <div>
+                <h2>Customer / Order Details</h2>
+                <p>Complete information about this order.</p>
+            </div>
+
+           
+        </div>
+
+        <div class="order-details-grid">
+
+            <div class="detail-item">
+                <span>Customer ID</span>
+                <strong id="detailCustomerId">-</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Customer Name</span>
+                <strong id="detailCustomerName">-</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Phone</span>
+                <strong id="detailPhone">-</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Email</span>
+                <strong id="detailEmail">-</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>City</span>
+                <strong id="detailCity">-</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>PIN</span>
+                <strong id="detailPin">-</strong>
+            </div>
+
+            <div class="detail-item detail-full">
+                <span>Address</span>
+                <strong id="detailAddress">-</strong>
+            </div>
+
+            <div class="detail-item detail-full">
+                <span>Order Note</span>
+                <strong id="detailNote">-</strong>
+            </div>
+
+            <div class="detail-item detail-full">
+                <span>Items</span>
+                <div id="detailItems" class="detail-items">-</div>
+            </div>
+
+            <div class="detail-item">
+                <span>Total</span>
+                <strong id="detailTotal">₹0</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Status</span>
+                <strong id="detailStatus">-</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Order Date</span>
+                <strong id="detailDate">-</strong>
+            </div>
+<div class="detail-row">
+    <span>Payment Method</span>
+    <strong id="detailPaymentMethod">UPI</strong>
+</div>
+
+<div class="detail-row">
+    <span>Payment Status</span>
+
+    <select id="detailPaymentStatus">
+        <option value="Submitted">Submitted</option>
+        <option value="Verified">Verified</option>
+        <option value="Failed">Failed</option>
+    </select>
+</div>
+
+<div class="detail-row">
+    <span>UTR / Transaction ID</span>
+    <strong id="detailUtr">-</strong>
+</div>
+
+<button
+    type="button"
+    class="save-payment-btn"
+    onclick="updatePaymentStatus()"
+>
+    Save Payment Status
+</button>
+
+        <div class="order-details-actions">
+            <button
+                type="button"
+                class="cancel-btn"
+                onclick="closeOrderDetails()">
+                Close
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="{{ url_for('static', filename='admin.js') }}"></script>
+
+</body>
+</html>

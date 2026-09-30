@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login - Alankara Jewels</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='admin.css') }}">
+</head>
+
+<body class="login-page">
+
+    <div class="login-card">
+
+        <div class="login-logo">
+            <h1>Alankara</h1>
+            <span>JEWELS</span>
+        </div>
+
+        <h2>Admin Login</h2>
+
+        <p class="login-subtitle">
+            Sign in to manage your jewellery store.
+        </p>
+
+        <form id="loginForm">
+
+            <div class="form-group">
+                <label>Username</label>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Admin username"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Admin password"
+                    required
+                >
+            </div>
+
+            <div id="loginMessage"
+                 class="message">
+            </div>
+
+            <button type="submit"
+                    class="login-btn">
+                Login
+            </button>
+
+        </form>
+
+        <a href="/" class="back-store">
+            ← Back to Store
+        </a>
+
+    </div>
+
+<script>
+document.getElementById("loginForm")
+.addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const username =
+        document.getElementById("username").value;
+
+    const password =
+        document.getElementById("password").value;
+
+    const message =
+        document.getElementById("loginMessage");
+
+    message.className = "message";
+    message.textContent = "Logging in...";
+    message.classList.add("show");
+
+    try {
+
+        const response = await fetch(
+            "/admin/login",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (data.success) {
+
+            window.location.href = "/admin";
+
+        } else {
+
+            message.textContent =
+                data.message || "Invalid login";
+
+            message.className =
+                "message show error";
+
+        }
+
+    } catch (error) {
+
+        message.textContent =
+            "Could not connect to server.";
+
+        message.className =
+            "message show error";
+    }
+
+});
+</script>
+
+</body>
+</html>
