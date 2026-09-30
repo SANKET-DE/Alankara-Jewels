@@ -61,8 +61,8 @@ try:
     if not firebase_admin._apps:
 
         cred = credentials.Certificate(
-            "serviceAccountKey.json"
-        )
+    "/etc/secrets/serviceAccountKey.json"
+    )
 
         firebase_admin.initialize_app(
             cred
